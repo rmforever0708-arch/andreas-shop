@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANDREA'S SHOP</title>
+
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #fff7fb;
+        color: #333;
+    }
+
+    /* ===== ENCABEZADO ===== */
+
+    header {
+        background: linear-gradient(135deg, #f3c6d8, #f8dce8);
+        text-align: center;
+        padding: 45px 20px;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 42px;
+    }
+
+    header p {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    /* ===== MENÚ ===== */
+
+    nav {
+        background: white;
+        text-align: center;
+        padding: 15px 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    nav a {
+        display: inline-block;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        margin: 5px 15px;
+        padding: 7px;
+    }
+
+    nav a:hover {
+        color: #d46b94;
+    }
+
+    /* ===== CONTENIDO ===== */
+
+    main {
+        max-width: 1200px;
+        margin: auto;
+        padding: 45px 20px;
+    }
+
+    section {
+        scroll-margin-top: 80px;
+    }
+
+    h2 {
+        text-align: center;
+        margin: 20px 0 30px;
+        font-size: 30px;
+    }
+
+    /* ===== PRODUCTOS ===== */
+
+    .productos {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .producto {
+        background: white;
+        border-radius: 18px;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.10);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .producto:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 7px 20px rgba(0,0,0,0.15);
+    }
+
+    .foto-principal {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        border-radius: 14px;
+        display: block;
+    }
+
+    /* ===== MINIATURAS ===== */
+
+    .miniaturas {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+    .miniaturas img {
+        width: 58px;
+        height: 58px;
+        object-fit: cover;
+        border-radius: 8px;
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+
+    .miniaturas img:hover {
+        border-color: #e79ab7;
+    }
+
+    /* ===== NOMBRE Y DATOS ===== */
+
+    .producto h3 {
+        margin: 15px 0 10px;
+        font-size: 19px;
+    }
+
+    .dato {
+        margin: 7px 0;
+        font-size: 15px;
+    }
+
+    .dato strong {
+        font-weight: bold;
+    }
+
+    /* ===== BOTÓN WHATSAPP ===== */
+
+    .comprar {
+        display: inline-block;
+        background: #25D366;
+        color: white;
+        text-decoration: none;
+        padding: 11px 22px;
+        border-radius: 25px;
+        margin-top: 10px;
+        font-weight: bold;
+        transition: 0.2s;
+    }
+
+    .comprar:hover {
+        background: #1da851;
+        transform: scale(1.03);
+    }
+
+    /* ===== PIE DE PÁGINA ===== */
+
+    footer {
+        background: #222;
+        color: white;
+        text-align: center;
+        padding: 35px 20px;
+        margin-top: 50px;
+    }
+
+    footer h2 {
+        margin-top: 0;
+    }
+
+    /* ==================================================
+       CELULAR
+       ================================================== */
+
+    @media (max-width: 900px) {
+
+        .productos {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .foto-principal {
+            height: 260px;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        header {
+            padding: 35px 15px;
+        }
+
+        header h1 {
+            font-size: 30px;
+        }
+
+        header p {
+            font-size: 16px;
+        }
+
+        nav {
+            padding: 10px 5px;
+        }
+
+        nav a {
+            margin: 3px 5px;
+            font-size: 14px;
+        }
+
+        main {
+            padding: 30px 12px;
+        }
+
+        h2 {
+            font-size: 26px;
+            margin-bottom: 25px;
+        }
+
+        .productos {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .producto {
+            padding: 10px;
+            border-radius: 14px;
+        }
+
+        .foto-principal {
+            height: 190px;
+            border-radius: 11px;
+        }
+
+        .miniaturas {
+            gap: 5px;
+            margin-top: 7px;
+        }
+
+        .miniaturas img {
+            width: 48px;
+            height: 48px;
+        }
+
+        .producto h3 {
+            font-size: 16px;
+            margin: 11px 0 7px;
+        }
+
+        .dato {
+            font-size: 13px;
+            margin: 5px 0;
+        }
+
+        .comprar {
+            width: 100%;
+            padding: 10px 5px;
+            font-size: 14px;
+        }
+
+        footer {
+            padding: 30px 15px;
+        }
+
+        footer h2 {
+            font-size: 22px;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+    }
+
+    /* CELULARES MUY PEQUEÑOS */
+
+    @media (max-width: 380px) {
+
+        .productos {
+            grid-template-columns: 1fr;
+        }
+
+        .foto-principal {
+            height: 280px;
+        }
+
+        .producto h3 {
+            font-size: 19px;
+        }
+
+        .dato {
+            font-size: 15px;
+        }
+
+        .comprar {
+            width: auto;
+            padding: 11px 25px;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+<header>
+    <h1>🛍️ ANDREA'S SHOP 🇺🇸</h1>
+    <p>✨ Moda importada • Carteras • Zapatillas ✨</p>
+    <p>🇺🇸 Zapatillas y carteras importadas de USA ✨🇺🇸</p>
+</header>
+
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#zapatillas">👟 Zapatillas</a>
+    <a href="#carteras">👜 Carteras</a>
+</nav>
+
+<main id="inicio">
+
+```
+<!-- ==================== ZAPATILLAS ==================== -->
+
+<section id="zapatillas">
+    <h2>👟 Zapatillas</h2>
+
+    <div class="productos">
+
+        <div class="producto">
+            <img class="foto-principal" id="z1" src="imagenes/zapatilla1.jpeg">
+            <div class="miniaturas">
+                <img src="imagenes/zapatilla1.jpeg" onclick="cambiarFoto('z1', this.src)">
+                <img src="imagenes/zapatilla1-2.jpeg" onclick="cambiarFoto('z1', this.src)">
+            </div>
+            <h3>Puma</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <p class="dato">📏 <strong>Tallas:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20las%20zapatillas%20Puma" target="_blank">💬 Consultar</a>
+        </div>
+
+        <div class="producto">
+            <img class="foto-principal" id="z2" src="imagenes/zapatilla2.jpeg">
+            <div class="miniaturas">
+                <img src="imagenes/zapatilla2.jpeg" onclick="cambiarFoto('z2', this.src)">
+                <img src="imagenes/zapatilla2-2.jpeg" onclick="cambiarFoto('z2', this.src)">
+            </div>
+            <h3>Guess</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <p class="dato">📏 <strong>Tallas:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20las%20zapatillas%20Guess" target="_blank">💬 Consultar</a>
+        </div>
+
+        <div class="producto">
+            <img class="foto-principal" id="z3" src="imagenes/zapatilla3.jpeg">
+            <div class="miniaturas">
+                <img src="imagenes/zapatilla3.jpeg" onclick="cambiarFoto('z3', this.src)">
+                <img src="imagenes/zapatilla3-3.jpeg" onclick="cambiarFoto('z3', this.src)">
+            </div>
+            <h3>Calvin Klein</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <p class="dato">📏 <strong>Tallas:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20las%20zapatillas%20Calvin%20Klein" target="_blank">💬 Consultar</a>
+        </div>
+
+        <div class="producto">
+            <img class="foto-principal" id="z4" src="imagenes/zapatilla4.jpeg">
+            <div class="miniaturas">
+                <img src="imagenes/zapatilla4.jpeg" onclick="cambiarFoto('z4', this.src)">
+                <img src="imagenes/zapatilla4-4.jpeg" onclick="cambiarFoto('z4', this.src)">
+            </div>
+            <h3>Salomon</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <p class="dato">📏 <strong>Tallas:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20las%20zapatillas%20Salomon" target="_blank">💬 Consultar</a>
+        </div>
+
+        <div class="producto">
+            <img class="foto-principal" id="z5" src="imagenes/zapatilla5.jpeg">
+            <div class="miniaturas">
+                <img src="imagenes/zapatilla5.jpeg" onclick="cambiarFoto('z5', this.src)">
+                <img src="imagenes/zapatilla5-5.jpeg" onclick="cambiarFoto('z5', this.src)">
+            </div>
+            <h3>Guess White</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <p class="dato">📏 <strong>Tallas:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20las%20zapatillas%20Guess%20White" target="_blank">💬 Consultar</a>
+        </div>
+
+        <div class="producto">
+            <img class="foto-principal" id="z6" src="imagenes/zapatilla6.jpeg">
+            <div class="miniaturas">
+                <img src="imagenes/zapatilla6.jpeg" onclick="cambiarFoto('z6', this.src)">
+                <img src="imagenes/zapatilla6-6.jpeg" onclick="cambiarFoto('z6', this.src)">
+            </div>
+            <h3>Reebok Charge Run</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <p class="dato">📏 <strong>Tallas:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20las%20zapatillas%20Reebok%20Charge%20Run" target="_blank">💬 Consultar</a>
+        </div>
+
+        <div class="producto">
+            <img class="foto-principal" id="z7" src="imagenes/zapatilla7.jpeg">
+            <div class="miniaturas">
+                <img src="imagenes/zapatilla7.jpeg" onclick="cambiarFoto('z7', this.src)">
+                <img src="imagenes/zapatilla7-7.jpeg" onclick="cambiarFoto('z7', this.src)">
+            </div>
+            <h3>Polo</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <p class="dato">📏 <strong>Tallas:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20las%20zapatillas%20Polo" target="_blank">💬 Consultar</a>
+        </div>
+
+        <div class="producto">
+            <img class="foto-principal" id="z8" src="imagenes/zapatilla8.jpeg">
+            <div class="miniaturas">
+                <img src="imagenes/zapatilla8.jpeg" onclick="cambiarFoto('z8', this.src)">
+                <img src="imagenes/zapatilla8-8.jpeg" onclick="cambiarFoto('z8', this.src)">
+            </div>
+            <h3>Reebok Beige and Pink</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <p class="dato">📏 <strong>Tallas:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20las%20zapatillas%20Reebok%20Beige%20and%20Pink" target="_blank">💬 Consultar</a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ==================== CARTERAS ==================== -->
+
+<section id="carteras">
+    <h2>👜 Carteras</h2>
+
+    <div class="productos">
+
+        <div class="producto">
+            <img class="foto-principal" src="imagenes/cartera1.jpeg">
+            <h3>True Religion</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20la%20cartera%20True%20Religion" target="_blank">💬 Consultar</a>
+        </div>
+
+        <div class="producto">
+            <img class="foto-principal" src="imagenes/cartera2.jpeg">
+            <h3>Guess White</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20la%20cartera%20Guess%20White" target="_blank">💬 Consultar</a>
+        </div>
+
+        <div class="producto">
+            <img class="foto-principal" src="imagenes/cartera3.jpeg">
+            <h3>Tommy Hilfiger</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20la%20cartera%20Tommy%20Hilfiger" target="_blank">💬 Consultar</a>
+        </div>
+
+        <div class="producto">
+            <img class="foto-principal" src="imagenes/cartera4.jpeg">
+            <h3>Long&Son</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20la%20cartera%20Long%26Son" target="_blank">💬 Consultar</a>
+        </div>
+
+        <div class="producto">
+            <img class="foto-principal" src="imagenes/cartera5.jpeg">
+            <h3>Like Dreams</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20la%20cartera%20Like%20Dreams" target="_blank">💬 Consultar</a>
+        </div>
+
+        <div class="producto">
+            <img class="foto-principal" src="imagenes/cartera6.jpeg">
+            <h3>Alyssa</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20la%20cartera%20Alyssa" target="_blank">💬 Consultar</a>
+        </div>
+
+        <div class="producto">
+            <img class="foto-principal" src="imagenes/cartera7.jpeg">
+            <h3>Blush Crush</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20la%20cartera%20Blush%20Crush" target="_blank">💬 Consultar</a>
+        </div>
+
+        <div class="producto">
+            <img class="foto-principal" src="imagenes/cartera8.jpeg">
+            <h3>Guess Beige</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20la%20cartera%20Guess%20Beige" target="_blank">💬 Consultar</a>
+        </div>
+
+        <div class="producto">
+            <img class="foto-principal" src="imagenes/cartera9.jpeg">
+            <h3>Anna&Elle</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20la%20cartera%20Anna%26Elle" target="_blank">💬 Consultar</a>
+        </div>
+
+        <div class="producto">
+            <img class="foto-principal" src="imagenes/cartera10.jpeg">
+            <h3>Blush Kiss</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20la%20cartera%20Blush%20Kiss" target="_blank">💬 Consultar</a>
+        </div>
+
+        <div class="producto">
+            <img class="foto-principal" src="imagenes/cartera11.jpeg">
+            <h3>Guess Black</h3>
+            <p class="dato">💰 <strong>Precio:</strong> Consultar</p>
+            <a class="comprar" href="https://wa.me/51968871831?text=Hola,%20quiero%20consultar%20por%20la%20cartera%20Guess%20Black" target="_blank">💬 Consultar</a>
+        </div>
+
+    </div>
+</section>
+```
+
+</main>
+
+<footer>
+    <h2>🛍️ ¡Haz tu pedido hoy!</h2>
+    <p>📲 WhatsApp: <strong>968 871 831</strong></p>
+    <p>🇺🇸 Productos importados de USA • Gracias por apoyar ANDREA'S SHOP 💖</p>
+</footer>
+
+<script>
+    function cambiarFoto(id, nuevaFoto) {
+        document.getElementById(id).src = nuevaFoto;
+    }
+</script>
+
+</body>
+</html>
